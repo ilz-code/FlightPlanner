@@ -4,6 +4,6 @@
     {
         public string Country { get; set; }
         public string City { get; set; }
-        public string AirportId { get; set; }
+        public string AirportCode { get; set; }
     }
 }

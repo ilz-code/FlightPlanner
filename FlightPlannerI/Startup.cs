@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FlightPlannerI.Authentication;
+using Microsoft.AspNetCore.Authentication;
 
 namespace FlightPlannerI
 {
@@ -31,6 +33,8 @@ namespace FlightPlannerI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FlightPlannerI", Version = "v1" });
             });
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +49,7 @@ namespace FlightPlannerI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

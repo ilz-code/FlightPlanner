@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "demo": "ts-node ./src/demo-data/run.ts",
+    "test-pattern": "jest --env=node --colors --verbose=true",
+    "test-00": "npm run test-pattern 00-*",
     "test": "jest --env=node --colors test --verbose=true",
     "prettier": "prettier --write './{src,test}/**/*.ts'"
   },
