@@ -1,12 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 using FlightPlannerI.Models;
 using FlightPlannerI.Storage;
-using FlightPlannerI.Validations;
 
 namespace FlightPlannerI.Controllers
 {
@@ -16,10 +10,10 @@ namespace FlightPlannerI.Controllers
     {
         [Route("airports")]
         [HttpGet]
-        public IActionResult SearchAirports(string code)
+        public IActionResult SearchAirports(string search)
         {
-            FlightStorage.SearchAirport(code);
-            return Ok();
+            var airport = FlightStorage.SearchAirport(search);
+            return Ok(airport);
         }
 
         [Route("flights/search")]
@@ -29,8 +23,6 @@ namespace FlightPlannerI.Controllers
             if (fs.From == fs.To)
                 return BadRequest();
             var flight = FlightStorage.SearchFlight(fs);
-            if (flight == null)
-                return BadRequest();
             return Ok(flight);
         }
 

@@ -1,8 +1,4 @@
-﻿using System.Data;
-using FlightPlannerI.Exceptions;
-using Microsoft.AspNetCore.Http;
-
-namespace FlightPlannerI.Models
+﻿namespace FlightPlannerI.Models
 {
     public class Flight
     {
@@ -20,8 +16,6 @@ namespace FlightPlannerI.Models
             Carrier = carrier;
             DepartureTime = departureTime;
             ArrivalTime = arrivalTime;
-
-            
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
@@ -20,8 +18,7 @@ namespace FlightPlannerI.Authentication
             IOptionsMonitor<AuthenticationSchemeOptions> options, 
             ILoggerFactory logger, UrlEncoder encoder, 
             ISystemClock clock) : base(options, logger, encoder, clock)
-        {
-        }
+        {}
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {

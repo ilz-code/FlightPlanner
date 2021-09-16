@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FlightPlannerI.Models
 {
@@ -9,6 +6,6 @@ namespace FlightPlannerI.Models
     {
         public int page { get; set; }
         public int totalItems { get; set; }
-        public Flight[] items { get; set; }
+        public List<Flight> items { get; set; }
     }
 }

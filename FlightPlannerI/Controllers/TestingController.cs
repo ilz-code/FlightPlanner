@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FlightPlannerI.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using FlightPlannerI.Storage;
 
 namespace FlightPlannerI.Controllers
@@ -18,6 +12,7 @@ namespace FlightPlannerI.Controllers
         public IActionResult Clear()
         {
             FlightStorage.ClearFlights();
+            FlightStorage._flightNumber = 0;
             return Ok();
         }
     }
