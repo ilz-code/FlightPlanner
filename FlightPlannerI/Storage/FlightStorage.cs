@@ -60,9 +60,12 @@ namespace FlightPlannerI.Storage
             var flight = _flights.Find(f => f.From.airport == fs.From
                                             && f.To.airport == fs.To
                                             && f.DepartureTime == fs.Time);
-            PageResult result;
+            PageResult result = new PageResult();
+            result.page = 0;
+            result.totalItems = 0;
+            result.items.Append(flight);
 
-            return null;
+            return result;
         }
     }
 }

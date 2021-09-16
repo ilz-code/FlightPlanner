@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace FlightPlannerI.Models
 {
-    public interface PageResult
+    public class PageResult
     {
-        //int page;
-        //int totalItems;
-        //Array<T> items;
+        public int page { get; set; }
+        public int totalItems { get; set; }
+        public Flight[] items { get; set; }
     }
 }

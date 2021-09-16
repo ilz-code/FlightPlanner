@@ -26,12 +26,12 @@ namespace FlightPlannerI.Controllers
         [HttpPost]
         public IActionResult SearchFlights(FlightSearch fs)
         {
-            if(fs.From == fs.To)
+            if (fs.From == fs.To)
                 return BadRequest();
             var flight = FlightStorage.SearchFlight(fs);
             if (flight == null)
-                return null;
-            return Ok();
+                return BadRequest();
+            return Ok(flight);
         }
 
         [HttpGet]
