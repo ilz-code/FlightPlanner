@@ -45,11 +45,11 @@ namespace FlightPlannerI.Authentication
             }
             catch
             {
-                return AuthenticateResult.Fail("Invalid Authorization Header");
+                return AuthenticateResult.Fail("Invalid Authorization Header 1");
             }
 
             if(!authenticated)
-                return AuthenticateResult.Fail("Invalid Authorization Header");
+                return AuthenticateResult.Fail("Invalid Authorization Header 2");
 
             var claims = new[] {
                 new Claim(ClaimTypes.NameIdentifier, "codelex-admin"),

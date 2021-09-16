@@ -1,4 +1,6 @@
-﻿using FlightPlannerI.Storage;
+﻿using FlightPlannerI.Models;
+using FlightPlannerI.Storage;
+using FlightPlannerI.Validations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +20,27 @@ namespace FlightPlannerI.Controllers
                 return NotFound();
 
             return Ok(flight);
+        }
+
+        [Route("flights")]
+        [HttpPut]
+        public IActionResult Add(Flight flight)
+        {
+            var valid = FlightValidation.ValidateFlight(flight);
+            if (!valid)
+                return BadRequest();
+            var response = FlightStorage.AddFlight(flight);
+            if (response == null)
+                return Conflict();
+            return Created("", flight);
+        }
+
+        [Route("flights/{id}")]
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            FlightStorage.DeleteFlight(id);
+            return Ok();
         }
     }
 }
