@@ -63,14 +63,14 @@ namespace FlightPlannerI.Storage
         public static PageResult SearchFlight(FlightSearch fs)
         {
             PageResult result = new PageResult();
-            result.items = new List<Flight>();
+            result.Items = new List<Flight>();
 
             var flight = _flights.Find(f => f.From.airport == fs.From
                                             && f.To.airport == fs.To); 
             if (flight != null)
-                result.items.Add(flight);
-            result.totalItems = result.items.Count;
-            result.page = result.totalItems;
+                result.Items.Add(flight);
+            result.TotalItems = result.Items.Count;
+            result.Page = result.TotalItems;
 
             return result;
         }

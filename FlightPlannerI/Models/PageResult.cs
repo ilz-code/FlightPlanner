@@ -4,8 +4,8 @@ namespace FlightPlannerI.Models
 {
     public class PageResult
     {
-        public int page { get; set; }
-        public int totalItems { get; set; }
-        public List<Flight> items { get; set; }
+        public int Page { get; set; }
+        public int TotalItems { get; set; }
+        public List<Flight> Items { get; set; }
     }
 }
