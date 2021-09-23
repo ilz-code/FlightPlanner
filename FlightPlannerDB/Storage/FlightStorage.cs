@@ -24,8 +24,8 @@ namespace FlightPlannerI.Storage
         {
             lock (flightsLock)
             {
-                var sameFlight = _flights.Find(f => f.From.airport == flight.From.airport
-                                                    && f.To.airport == flight.To.airport
+                var sameFlight = _flights.Find(f => f.From.AirportCode == flight.From.AirportCode
+                                                    && f.To.AirportCode == flight.To.AirportCode
                                                     && f.DepartureTime == flight.DepartureTime);
                 if (sameFlight != null)
                     return null;
@@ -53,7 +53,7 @@ namespace FlightPlannerI.Storage
             code = code.ToUpper().Trim();
             if (code == "RI" || code == "RIG" || code == "LATV" || code == "LATVIA" || code == "RIGA")
                 code = "RIX";
-            var flight = _flights.Find(f => f.From.airport == code);
+            var flight = _flights.Find(f => f.From.AirportCode == code);
             var airport = flight.From;
             Airport[] airports = new Airport[1];
             airports[0] = airport;
@@ -65,8 +65,8 @@ namespace FlightPlannerI.Storage
             PageResult result = new PageResult();
             result.Items = new List<Flight>();
 
-            var flight = _flights.Find(f => f.From.airport == fs.From
-                                            && f.To.airport == fs.To); 
+            var flight = _flights.Find(f => f.From.AirportCode == fs.From
+                                            && f.To.AirportCode == fs.To); 
             if (flight != null)
                 result.Items.Add(flight);
             result.TotalItems = result.Items.Count;

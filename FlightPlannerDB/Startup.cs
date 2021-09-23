@@ -1,3 +1,4 @@
+using FlightPlannerDB.DBContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using FlightPlannerI.Authentication;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlightPlannerI
 {
@@ -28,6 +30,10 @@ namespace FlightPlannerI
             });
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            services.AddDbContext<FlightPlannerDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("flight-planner")));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
