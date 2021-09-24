@@ -1,10 +1,10 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FlightPlannerI.Models
+namespace FlightPlannerDB.Models
 {
     public class Airport
     {
-        [Newtonsoft.Json.JsonIgnore]
+        [JsonIgnore]
         public int Id { get; set; }
         public string Country { get; set; }
         public string City { get; set; }

@@ -1,7 +1,7 @@
 ﻿using System;
-using FlightPlannerI.Models;
+using FlightPlannerDB.Models;
 
-namespace FlightPlannerI.Validations
+namespace FlightPlannerDB.Validations
 {
     public class FlightValidation
     {
@@ -19,11 +19,11 @@ namespace FlightPlannerI.Validations
                      || String.IsNullOrEmpty(flight.To.Country)
                      || String.IsNullOrEmpty(flight.From.City)
                      || String.IsNullOrEmpty(flight.To.City)
-                     || String.IsNullOrEmpty(flight.From.airport)
-                     || String.IsNullOrEmpty(flight.To.airport))
+                     || String.IsNullOrEmpty(flight.From.AirportCode)
+                     || String.IsNullOrEmpty(flight.To.AirportCode))
                 return false;
 
-            else if (flight.From.airport.Trim().ToLower() == flight.To.airport.Trim().ToLower())
+            else if (flight.From.AirportCode.Trim().ToLower() == flight.To.AirportCode.Trim().ToLower())
                 return false;
 
             else if (Convert.ToDateTime(flight.DepartureTime) >= Convert.ToDateTime(flight.ArrivalTime))

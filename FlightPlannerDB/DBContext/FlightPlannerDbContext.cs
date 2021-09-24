@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Threading.Tasks;
-using FlightPlannerI.Models;
+﻿using FlightPlannerDB.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FlightPlannerDB.DBContext

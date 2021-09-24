@@ -1,4 +1,4 @@
-﻿namespace FlightPlannerI.Models
+﻿namespace FlightPlannerDB.Models
 {
     public class FlightSearch
     {
